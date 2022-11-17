@@ -1,0 +1,23 @@
+{
+    "author": "",
+    "email": "",
+    "project_name": "",
+    "package_name": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+    "description": "",
+    "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"],
+    "environment": ["venv", "Dockerfile"],
+    "add_conda_build": "no",
+    "add_vscode_settings": "yes",
+    "python_version": "3.9",
+    "versioneer_version": "",
+    "flake8_version": "",
+    "autoflake_version": "",
+    "black_version": "",
+    "pytest_version": "",
+    "isort_version": "",
+    "pyannotate_version": "",
+    "mypy_version": "",
+    "coverage_version": "",
+    "pytest_cov_version": "",
+    "pre_commit_version": ""
+}

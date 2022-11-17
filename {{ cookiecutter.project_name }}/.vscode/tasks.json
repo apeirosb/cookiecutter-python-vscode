@@ -1,0 +1,83 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "pytest",
+            "type": "shell",
+            "command": "{% if cookiecutter.environment == "venv" %}.venv/bin/{% endif %}pytest",
+            "problemMatcher": []
+        },
+        {
+            "label": "coverage run",
+            "type": "shell",
+            "command": "{% if cookiecutter.environment == "venv" %}.venv/bin/{% endif %}coverage run -m pytest",
+            "problemMatcher": []
+        },
+        {
+            "label": "coverage report",
+            "type": "shell",
+            "command": "{% if cookiecutter.environment == "venv" %}.venv/bin/{% endif %}coverage report -m --omit='**/_version.py,**/conftest.py,tests/*'",
+            "problemMatcher": [],
+            "dependsOn": "coverage run"
+        },
+        {
+            "label": "coverage html",
+            "type": "shell",
+            "command": "{% if cookiecutter.environment == "venv" %}.venv/bin/{% endif %}coverage html --omit='**/_version.py,**/conftest.py,tests/*'",
+            "problemMatcher": [],
+            "dependsOn": "coverage run"
+        },
+        {
+            "label": "pytest-cov",
+            "type": "shell",
+            "command": "{% if cookiecutter.environment == "venv" %}.venv/bin/{% endif %}pytest --cov={{ cookiecutter.package_name }} tests",
+            "problemMatcher": [],
+        },
+        {
+            "label": "mypy",
+            "type": "shell",
+            "command": "{% if cookiecutter.environment == "venv" %}.venv/bin/{% endif %}mypy tests",
+            "problemMatcher": [],
+        },
+        {
+            "label": "pyannotate dry-run",
+            "type": "shell",
+            "command": "{% if cookiecutter.environment == "venv" %}.venv/bin/{% endif %}pyannotate --py3 --type-info type_info.json {{ cookiecutter.package_name }}",
+            "problemMatcher": [],
+            "dependsOn": "pytest"
+        },
+        {
+            "label": "pyannotate",
+            "type": "shell",
+            "command": "{% if cookiecutter.environment == "venv" %}.venv/bin/{% endif %}pyannotate -w --py3 --type-info type_info.json {{ cookiecutter.package_name }}",
+            "problemMatcher": [],
+            "dependsOn": "pytest"
+        },
+        {
+            "label": "pre-commit install",
+            "type": "shell",
+            "command": "{% if cookiecutter.environment == "venv" %}.venv/bin/{% endif %}pre-commit install",
+            "problemMatcher": []
+        },
+        {
+            "label": "pre-commit",
+            "type": "shell",
+            "command": "{% if cookiecutter.environment == "venv" %}.venv/bin/{% endif %}pre-commit run --all-files",
+            "problemMatcher": []
+        },
+        {
+            "label": "autoflake dry-run",
+            "type": "shell",
+            "command": "{% if cookiecutter.environment == "venv" %}.venv/bin/{% endif %}autoflake -cd **/*.py",
+            "problemMatcher": []
+        },
+        {
+            "label": "autoflake",
+            "type": "shell",
+            "command": "{% if cookiecutter.environment == "venv" %}.venv/bin/{% endif %}autoflake --in-place **/*.py",
+            "problemMatcher": []
+        }
+    ]
+}

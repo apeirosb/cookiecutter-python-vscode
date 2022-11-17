@@ -1,0 +1,24 @@
+{{ "{% set data = load_setup_py_data() %}" }}
+
+package:
+  name: "{{ cookiecutter.project_name }}"
+  version: {{ "{{ data.get('version') }}" }}
+
+source:
+  path: ../
+
+build:
+  number: 0
+  noarch: python
+
+requirements:
+  host:
+    - python>={{ cookiecutter.python_version }}
+    - setuptools
+  run:
+    - python>={{ cookiecutter.python_version }}
+
+test:
+  imports:
+    - {{ cookiecutter.package_name }}
+

@@ -1,0 +1,11 @@
+versioneer{% if cookiecutter.versioneer_version != "" %}=={{ cookiecutter.versioneer_version }}{% endif %}
+flake8{% if cookiecutter.flake8_version != "" %}=={{ cookiecutter.flake8_version }}{% endif %}
+autoflake{% if cookiecutter.autoflake_version != "" %}=={{ cookiecutter.autoflake_version }}{% endif %}
+black{% if cookiecutter.black_version != "" %}=={{ cookiecutter.black_version }}{% endif %}
+pytest{% if cookiecutter.pytest_version != "" %}=={{ cookiecutter.pytest_version }}{% endif %}
+isort{% if cookiecutter.isort_version != "" %}=={{ cookiecutter.isort_version }}{% endif %}
+pyannotate{% if cookiecutter.pyannotate_version != "" %}=={{ cookiecutter.pyannotate_version }}{% endif %}
+mypy{% if cookiecutter.mypy_version != "" %}=={{ cookiecutter.mypy_version }}{% endif %}
+coverage{% if cookiecutter.coverage_version != "" %}=={{ cookiecutter.coverage_version }}{% endif %}
+pytest-cov{% if cookiecutter.pytest_cov_version != "" %}=={{ cookiecutter.pytest_cov_version }}{% endif %}
+pre-commit{% if cookiecutter.pre_commit_version != "" %}=={{ cookiecutter.pre_commit_version }}{% endif %}
